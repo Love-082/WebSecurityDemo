@@ -2,7 +2,7 @@
 
 This repository contains the **starter code** for the WebSecurityDemo security exercise used in the BCIT SSD program.
 
-The application is intentionally **insecure** and is designed to be hardened by students as part of a graded exercise.
+The application is intentionally **insecure** and is designed to be hardened as part of a graded exercise.
 
 ---
 
@@ -72,7 +72,7 @@ located on the Learning Hub for step-by-step instructions.
 
 - Do **not** submit a zip file.
 - Do **not** submit a fork of this repository.
-- Visual styling is not graded — focus on **security implementation**.
+- Visual styling is not graded, focus on **security implementation**.
 
 ---
 
