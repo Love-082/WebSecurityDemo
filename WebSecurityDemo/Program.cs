@@ -15,6 +15,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Lockout settings (short duration to make testing easy)
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<RoleRepository>();
 builder.Services.AddScoped<UserRepository>();

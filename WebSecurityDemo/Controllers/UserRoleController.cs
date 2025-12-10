@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 using WebSecurityDemo.Repositories;
 using WebSecurityDemo.ViewModels;
 
 namespace WebSecurityDemo.Controllers
 {
     //[Authorize(Roles = "Admin")]
+    [Authorize]
     public class UserRoleController : Controller
     {
         private readonly UserRepository _userRepo;
@@ -36,6 +38,10 @@ namespace WebSecurityDemo.Controllers
             ViewBag.UserName = userName;
             return View(roles);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager")]
 
         // Delete role from user
         public async Task<IActionResult> Delete(string userName, string roleName)

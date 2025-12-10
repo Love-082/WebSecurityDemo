@@ -14,6 +14,7 @@ namespace WebSecurityDemo.Controllers
         }
 
         // Home page – show all customers
+        [Authorize]
         public IActionResult Index(string message = "")
         {
             ViewBag.Message = message;
@@ -21,7 +22,9 @@ namespace WebSecurityDemo.Controllers
             return View(customers);
         }
 
-        // GET delete
+       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Manager")]
         public IActionResult DeleteCustomer(int customerId)
         {
